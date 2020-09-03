@@ -16,10 +16,12 @@ full_dat <- setDT(data.frame(gre, other))
 full_dat$accepted_logodds <- with(full_dat, .1 + 1.5*gre + 3*other)
 
 prop <- plogis(full_dat$accepted_logodds)
+
 full_dat$accepted = rbinom(N, size = 1, prob = prop)
 
 accepted_fit <- glm(data = full_dat, formula = accepted ~ gre + other, family = binomial(link = 'logit'))
 
+# only the best are accepted!
 full_dat$accepted_decision <- predict.glm(accepted_fit, type = "response") > .9
 
 full_dat$success <- with(full_dat, rnorm(N, mean = 3 + 10*accepted_decision + rnorm(N, 0, 10)))
