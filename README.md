@@ -13,7 +13,7 @@ other <- rbinom(N, size = 1, prob = .2)
 
 full_dat <- setDT(data.frame(gre, other))
 
-full_dat$accepted_logodds <- with(full_dat, .1 + 1.5*gre + 3*other)
+full_dat$accepted_logodds <- with(full_dat, .1 + 1.1*gre + 3*other)
 
 prop <- plogis(full_dat$accepted_logodds)
 
