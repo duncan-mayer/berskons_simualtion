@@ -28,11 +28,6 @@ full_dat$success <- with(full_dat, rnorm(N, mean = 3 + 10*accepted_decision + rn
 
 accept_dat <- full_dat[accepted_decision == TRUE,]
 
-summary(lm(data = accept_dat, success ~ gre + other))
-
-summary(lm(data = full_dat,  success ~ gre + other))
-
-
 
 full_plot <- ggplot(data = full_dat, 
                     aes(y = success, x = gre)) + 
