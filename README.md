@@ -45,3 +45,6 @@ full_plot <- ggplot(data = full_dat,
   theme_bw()
   
 full_plot
+
+
+![Screen Shot 2020-09-03 at 9 11 11 AM](https://user-images.githubusercontent.com/63907969/92119133-6bbb5200-edc5-11ea-8c0f-fb05ea1fb642.png)
