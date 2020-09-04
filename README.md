@@ -3,15 +3,13 @@ A simple simualtion of berksons paradox motivated by a conversation about GRE sc
 
 library(ggplot2)
 
-library(data.table)
-
 N <- 1e4
 
 gre <- rnorm(N, 0, 3)
 
 other <- rbinom(N, size = 1, prob = .2)
 
-full_dat <- setDT(data.frame(gre, other))
+full_dat <- data.frame(gre, other)
 
 full_dat$accepted_logodds <- with(full_dat, .1 + 1.1*gre + 3*other)
 
@@ -25,7 +23,7 @@ full_dat$accepted_decision <- predict.glm(accepted_fit, type = "response") > .9
 
 full_dat$success <- with(full_dat, rnorm(N, mean = 3 + 10*accepted_decision + rnorm(N, 0, 10)))
 
-accept_dat <- full_dat[accepted_decision == TRUE,]
+accept_dat <- full_dat[fulldat$accepted_decision == TRUE,]
 
 summary(lm(data = accept_dat, success ~ gre + other))
 
