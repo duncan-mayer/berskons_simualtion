@@ -1,4 +1,4 @@
-# berskons_simualtion
+# berskons_simulation
 Wrote a simple simualtion of berksons paradox motivated by a conversation about GRE scores.
 
 
